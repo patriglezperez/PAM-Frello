@@ -1,7 +1,7 @@
 var router = require('express')();
 
 //Actualizar Lista
-router.post('/:id/?name={newName}', require('../controllers/lists/updateList'));
+router.post('/:id/?name=newName', require('../controllers/lists/updateList'));
 
 //Obtener tarjetas
 router.get('/:id', require('../controllers/lists/getCards'));
