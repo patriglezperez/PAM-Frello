@@ -1,15 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
 
-const organization = {
-    ID: "pamlohavueltoahacer",
-    Name: "myworkspace70305416",
-    DisplayName: "PAM Workspace",
-    IDmemberCreator: uuidv4(),
-    URL: "/PENES",
-    IDboards: [],
-    membership: uuidv4(),
-}
-
 class Organization {
     constructor(id) {
         this.id = id,
@@ -39,4 +29,4 @@ class Organization {
     }
 }
 
-module.exports = organization
+module.exports = Organization

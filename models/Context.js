@@ -1,4 +1,4 @@
-const firstOrganization = require('./Organization');
+const Organization = require('./Organization');
 
 class Context {
     constructor() {
@@ -79,6 +79,8 @@ class Context {
 }
 
 const newContext = new Context();
+
+const firstOrganization = new Organization("pamlohavueltoahacer");
 
 newContext.addOrganization(firstOrganization)
 
