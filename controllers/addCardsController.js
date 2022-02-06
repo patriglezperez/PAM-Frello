@@ -1,4 +1,4 @@
-const cards = require("../models/card/card");
+const context = require("../models/Context");
 
 function addCardsController(req, res) {
   const myCard = req.body;

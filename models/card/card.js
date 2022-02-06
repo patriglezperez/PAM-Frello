@@ -1,21 +1,21 @@
-// const req = require("express/lib/request");
-// const res = require("express/lib/response");
-
-let cards = {
-  list: [],
-};
+const { v4: uuidv4 } = require("uuid");
 
 class Card {
-  constructor(name, ID) {
+  constructor(name, idList) {
     this.name = name;
     this.desc = "desc"; //descripción
     this.dateLastActivity = "dateLastActivity;";
-    this.ID = ID;
-    this.idList = "idList";
+    this.id = uuidv4(); //id que creamos
+    this.idList = idList; //id que recibimos de list
     this.idBoard = "idBoard";
     this.url = "url";
   }
+
+  setName(name) {
+    this.name = name;
+  }
+  setDesc(desc) {
+    this.desc = desc;
+  }
 }
-let newCard = new Card();
-cards.list.push(newCard);
-module.exports = cards;
+module.exports = Card;
