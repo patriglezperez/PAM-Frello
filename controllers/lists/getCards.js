@@ -8,7 +8,8 @@ function getCards(req, res) {
       List = element;
     }
   });
-  res.status(200).json(List.getCards());
+  console.log(List)
+  res.status(200).json(List.length > 0 ? List.getCards() : { message: "No cards" });
 }
 
 module.exports = getCards;
