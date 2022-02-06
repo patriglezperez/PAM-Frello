@@ -88,5 +88,9 @@ newContext.addOrganization(firstOrganization);
 
 module.exports = newContext;
 
-// let newCard = new Card();
-// contextList.addCard(newCard);
+/*Aqui para crear tarjetas*/
+let newCard = new Card();
+
+newContext.addCard(newCard);
+
+module.exports = newCard;
