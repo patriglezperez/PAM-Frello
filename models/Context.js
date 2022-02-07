@@ -85,11 +85,10 @@ const newContext = new Context();
 
 const firstOrganization = new Organization("pamlohavueltoahacer");
 const firstList = new List("Lista de pruebas", 10);
-let newCard = new Card();
+const newCard = new Card(10, "Tarjeta de prueba");
 
 newContext.addOrganization(firstOrganization);
 newContext.addList(firstList);
-
 newContext.addCard(newCard); /*Aqui para crear tarjetas*/
 
 module.exports = newContext;

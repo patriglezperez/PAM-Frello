@@ -1,18 +1,21 @@
 const context = require("../../models/Context");
+const { listen } = require("../../routes/lists");
 
 function createCard(req, res) {
-  let contextList = context.getContextList(); // Buscamos en la lista
-  const newContext = contextList.map((list) => {
-    //Vemos que lista coincide con la que estamos buscando
-    if (list.idList === req.query.idList) {
-      let newCard = new Card(); //Creamos una lista (no tengo claro que pueda hacer esto aqui)
-      contextList.addCard(newCard);
-      //newCard.setName(req.query.name)
+  let idList = req.query.idList;
+  let newName = req.query.name;
+  const newContext = context.getContextList();
+  newContext.map((element) => {
+    if (element.id === req.params.id) {
+      const newCard = req.body.id;
+      element.idCards.push(newCard);
     }
-    return newCard;
   });
 
   context.setContextList(newContext);
-  res.status(200).json({ message: "nueva tarjeta creada" });
+  console.log();
+  res.status(200).json({
+    message: `se ha creado una nueva tarjeta con id: ${idList} y name: ${newName}`,
+  });
 }
 module.exports = createCard;
