@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 
 class Card {
-  constructor(idList, name) {
+  constructor(name, idList) {
     this.name = name;
     this.desc = "desc"; //descripción
     this.dateLastActivity = "dateLastActivity;";

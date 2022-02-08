@@ -1,4 +1,3 @@
-
 const context = require("../../models/Context");
 const Board = require("../../models/board");
 
@@ -48,4 +47,3 @@ function addBoard(req, res) {
 }
 
 module.exports = addBoard;
-

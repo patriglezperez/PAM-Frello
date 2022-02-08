@@ -1,10 +1,12 @@
 const context = require("../../models/Context");
 
 function deleteCard(req, res) {
+  let aux = false;
   const contextCard = context.getContextCard();
-  const newContext = contextCard.map((card) => card.id !== req.params.id); //Devuelveme todos los elementos que no sean como el del parametro id que estoy pasando
+  const newContext = contextCard.map((element) => element.id == req.params.id);
+  newContext.length > 0 ? (aux = true) : (aux = false);
   context.setContextCard(newContext);
-
-  res.json("tarjeta eliminada con éxito");
+  res.json(aux ? { message: "Eliminada" } : { message: "Carta no encontrada" });
 }
+
 module.exports = deleteCard;
