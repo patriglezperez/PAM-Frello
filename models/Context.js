@@ -91,4 +91,6 @@ newContext.addOrganization(firstOrganization);
 newContext.addList(firstList);
 newContext.addCard(newCard); /*Aqui para crear tarjetas*/
 
+console.log(firstList)
+
 module.exports = newContext;

@@ -1,6 +1,0 @@
-Aqui irian los objetos a exportar y la logica que usaremos (y que deberia desarrollarse en la BBDD)
-
-Para crear los objetos pusheadlos a un array, no los dejeis sueltos en memoria sin referencia porque se perderian.
-Crear y pushear al array, para buscarlo, modificarlo y borrarlo peinad el arr buscando su id.
-
-🤪
