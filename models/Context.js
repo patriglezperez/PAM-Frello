@@ -1,4 +1,9 @@
 const Organization = require("./Organization");
+<<<<<<< HEAD
+=======
+const Card = require("./card/card");
+const List = require("./List")
+>>>>>>> e52bd2e54e95face4be8466f5e01b4d682aa2e48
 
 class Context {
   constructor() {
@@ -82,7 +87,20 @@ class Context {
 const newContext = new Context();
 
 const firstOrganization = new Organization("pamlohavueltoahacer");
+const firstList = new List("Lista de pruebas", 10);
 
+newContext.addOrganization(firstOrganization);
+newContext.addList(firstList);
+
+console.log(firstList)
+
+<<<<<<< HEAD
 newContext.addOrganization(firstOrganization);
 
 module.exports = newContext;
+=======
+module.exports = newContext;
+
+// let newCard = new Card();
+// contextList.addCard(newCard);
+>>>>>>> e52bd2e54e95face4be8466f5e01b4d682aa2e48
