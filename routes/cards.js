@@ -8,7 +8,7 @@ router.delete("/:id", require("../controllers/card/deleteCard"));
 
 //Crear una tarjeta
 router.post(
-  "/?idList=idList&name=newName",
+  "/p",
   require("../controllers/card/createCard")
 );
 
