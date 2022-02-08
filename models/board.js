@@ -7,6 +7,7 @@ class board {
       (this.name = name),
       (this.IDorganization = idOraganization),
       (this.Background = "#00000"),
+      (this.idLists = []),
       (this.BackgroundColor = "#00000"),
       (this.Url = "/PENE");
   }
