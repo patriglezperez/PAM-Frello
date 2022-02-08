@@ -89,7 +89,7 @@ const firstList = new List("Lista de pruebas", 10);
 newContext.addOrganization(firstOrganization);
 newContext.addList(firstList);
 
-console.log(newContext);
+
 
 module.exports = newContext;
 
