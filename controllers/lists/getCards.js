@@ -6,7 +6,6 @@ function getCards(req, res) {
 
   //Realizo busqueda de la lista con su id
   contextList.map((element) => {
-    console.log(element);
     if (element.id === req.params.id) {
       //Obtengo los ids de las cartas
       ListIDS = element.getCards();
@@ -22,7 +21,9 @@ function getCards(req, res) {
     allCards.find((element) => element.id === ids)
   );
 
-  res.status(200).json(ListIDS.length > 0 ? response : { message: "No cards" });
+  res
+    .status(200)
+    .json(ListIDS.length > 0 ? response : { message: "No cards or not List" });
 }
 
 module.exports = getCards;
