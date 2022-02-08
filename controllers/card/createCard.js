@@ -7,6 +7,8 @@ function createCard(req, res) {
     .getContextList()
     .filter((element) => element.id === req.query.idList);
 
+  console.log(contextList);
+
   const myList = contextList.length > 0 ? contextList[0] : false;
 
   //Creamos la carta con su name y el id del padre, generamos su id en el constructor:
@@ -24,6 +26,8 @@ function createCard(req, res) {
     //Introducimos nuevamente la lista
     context.addList(myList);
   }
+
+  /*   console.log(context); */
 
   res
     .status(200)
