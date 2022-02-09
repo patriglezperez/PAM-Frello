@@ -1,7 +1,7 @@
 const Organization = require("./Organization");
 const Card = require("./card/card");
 const List = require("./List");
-const board = require("./board");
+const Board = require("./board");
 
 class Context {
   constructor() {
@@ -35,7 +35,8 @@ class Context {
   }
 
   deleteBoard(id) {
-    const newContext = this.contextBoard.map((element) => element.id !== id);
+    const newContext = this.contextBoard.filter((element) => element.id !== id);
+    console.log(newContext);
     this.setContextBoard(newContext);
   }
 
@@ -85,17 +86,18 @@ class Context {
 const newContext = new Context();
 
 const firstOrganization = new Organization("pamlohavueltoahacer");
-const firstBoard = new board("pamlohavueltoahacer", "earl");
-const firstList = new List("Lista de pruebas", firstBoard.id);
+const firstList = new List("Lista de pruebas", 10);
+const firstCard = new Card(10, "Tarjeta de prueba");
+const firstBoard = new Board(10, "Tablero de prueba");
+
+console.log(firstOrganization);
 
 newContext.addOrganization(firstOrganization);
 newContext.addBoard(firstBoard);
 newContext.addList(firstList);
 
-console.log(firstList);
-console.log(newContext);
+newContext.addCard(firstCard); /*Aqui para crear tarjetas*/
+newContext.addBoard(firstBoard); /*Aqui para crear tableros*/
+newContext.addOrganization(firstOrganization);
 
 module.exports = newContext;
-
-// let newCard = new Card();
-// contextList.addCard(newCard);

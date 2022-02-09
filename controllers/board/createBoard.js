@@ -17,7 +17,7 @@ function createBoard(req, res) {
     //Seteamos contexto y la lista
     context.addBoard(newBoard);
     myOrganization.addBoard(newBoard.id);
-    console.log(context);
+    // console.log(context);
     //La lista que tenemos ahora es diferente a la guardada en el contexto, procedemos a cambiarla:
 
     //Borramos la lista previa que habia usando el id guardado
