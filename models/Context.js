@@ -34,7 +34,8 @@ class Context {
   }
 
   deleteBoard(id) {
-    const newContext = this.contextBoard.map((element) => element.id !== id);
+    const newContext = this.contextBoard.filter((element) => element.id !== id);
+    console.log(newContext);
     this.setContextBoard(newContext);
   }
 
