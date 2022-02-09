@@ -1,4 +1,4 @@
-const context = require("../../models/Context");
+// const context = require("../../models/Context");
 const Board = require("../../models/board");
 
 function createBoard(req, res) {

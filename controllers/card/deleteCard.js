@@ -1,6 +1,7 @@
 const context = require("../../models/Context");
 
 function deleteCard(req, res) {
+  context.deleteCard(req.params.id);
   let aux = false;
   const contextCard = context.getContextCard();
   const newContext = contextCard.map((element) => element.id == req.params.id);
