@@ -1,12 +1,33 @@
 const context = require("../../models/Context");
 
 function deleteList(req, res) {
-  let aux = false;
   const contextList = context.getContextList();
-  const newContext = contextList.map((element) => element.id !== req.params.id);
-  newContext.length > 0 ? (aux = true) : (aux = false);
-  context.setContextList(newContext);
-  res.json(aux ? { message: "deleted" } : { message: "Lista no encontrada" });
+
+  const comprobacion = contextList.map((element) => element.id);
+
+  if (comprobacion.includes(req.params.id)) {
+    //Encontramos elemento a borrar
+    const itemToDelete = contextList.find(
+      (element) => element.id === req.params.id
+    );
+
+    //Encontramos al padre de ese elemento
+    const Father = context
+      .getContextBoard()
+      .find((element) => element.id === itemToDelete.idBoard);
+
+    Father.deleteList(itemToDelete.id);
+
+    context.deleteList(itemToDelete.id);
+    context.deleteBoard(Father.id);
+    context.addBoard(Father);
+  }
+
+  res.json(
+    comprobacion.includes(req.params.id)
+      ? { message: "deleted" }
+      : { message: "Lista no encontrada" }
+  );
 }
 
 module.exports = deleteList;

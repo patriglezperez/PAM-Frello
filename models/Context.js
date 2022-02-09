@@ -93,8 +93,11 @@ const firstBoard = new Board(10, "Tablero de prueba");
 console.log(firstOrganization);
 
 newContext.addOrganization(firstOrganization);
+newContext.addBoard(firstBoard);
 newContext.addList(firstList);
+
 newContext.addCard(firstCard); /*Aqui para crear tarjetas*/
 newContext.addBoard(firstBoard); /*Aqui para crear tableros*/
+newContext.addOrganization(firstOrganization);
 
 module.exports = newContext;

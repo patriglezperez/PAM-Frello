@@ -16,21 +16,21 @@ class board {
     this.name = name;
   }
 
-  addBoard() {
-    return this.board;
+  addList(id) {
+    this.idLists.push(id);
   }
 
-  deleteBoard(id) {
-    const newBoards = this.idBoards.map((element) => element.id !== id);
-    this.setBoards(newBoards);
+  deleteList(id) {
+    const newLists = this.idLists.filter((element) => element.id !== id);
+    this.setLists(newLists);
   }
 
   getBoards() {
-    return this.board;
+    return this.idLists;
   }
 
-  setBoards(boards) {
-    this.idBoards = boards;
+  setLists(list) {
+    this.idLists = list;
   }
 
   addList(id) {

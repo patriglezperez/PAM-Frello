@@ -25,6 +25,8 @@ function createCard(req, res) {
     context.addList(myList);
   }
 
+  /*   console.log(context); */
+
   res
     .status(200)
     .json(

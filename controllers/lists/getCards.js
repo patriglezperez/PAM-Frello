@@ -12,6 +12,9 @@ function getCards(req, res) {
     }
   });
 
+  console.log(ListIDS);
+  console.log(contextList);
+
   //Ahora con la lista encontrada, traigo las cartas
   const allCards = context.getContextCard();
 
