@@ -7,29 +7,22 @@ class board {
       (this.name = name),
       (this.IDorganization = idOraganization),
       (this.Background = "#00000"),
-
       (this.idLists = []),
-
-
       (this.BackgroundColor = "#00000"),
       (this.Url = "/PENE");
   }
 
-  addBoard() {
-    return this.board;
-  }
-
-  deleteBoard(id) {
-    const newBoards = this.idBoards.map((element) => element.id !== id);
-    this.setBoards(newBoards);
+  deleteList(id) {
+    const newLists = this.idLists.filter((element) => element.id !== id);
+    this.setLists(newLists);
   }
 
   getBoards() {
-    return this.board;
+    return this.idLists;
   }
 
-  setBoards(boards) {
-    this.idBoards = boards;
+  setLists(list) {
+    this.idLists = list;
   }
 }
 
