@@ -20,7 +20,7 @@ function getBoard(req, res) {
   const response = idBoards.map((ids) =>
     allBoard.find((element) => element.id === ids)
   );
-  console.log("hola");
+  // console.log("hola");
   res
     .status(200)
     .json(idBoards.length > 0 ? response : { message: "No cards or not List" });

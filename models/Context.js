@@ -1,6 +1,7 @@
 const Organization = require("./Organization");
 const Card = require("./card/card");
 const List = require("./List");
+const Board = require("./board");
 
 class Context {
   constructor() {
@@ -86,12 +87,14 @@ const newContext = new Context();
 
 const firstOrganization = new Organization("pamlohavueltoahacer");
 const firstList = new List("Lista de pruebas", 10);
-const newCard = new Card(10, "Tarjeta de prueba");
+const firstCard = new Card(10, "Tarjeta de prueba");
+const firstBoard = new Board(10, "Tablero de prueba");
 
 console.log(firstOrganization);
 
 newContext.addOrganization(firstOrganization);
 newContext.addList(firstList);
-newContext.addCard(newCard); /*Aqui para crear tarjetas*/
+newContext.addCard(firstCard); /*Aqui para crear tarjetas*/
+newContext.addBoard(firstBoard); /*Aqui para crear tableros*/
 
 module.exports = newContext;
