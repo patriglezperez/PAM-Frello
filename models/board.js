@@ -1,15 +1,19 @@
 const { v4: uuidv4 } = require("uuid");
 
 class board {
-  constructor(idOraganization, name) {
+  constructor(idOrganization, name) {
     (this.id = uuidv4()),
       (this.title = "bla bla bla"),
       (this.name = name),
-      (this.IDorganization = idOraganization),
+      (this.idOrganization = idOrganization),
       (this.Background = "#00000"),
       (this.idLists = []),
       (this.BackgroundColor = "#00000"),
       (this.Url = "/PENE");
+  }
+
+  setName(name) {
+    this.name = name;
   }
 
   addBoard() {
@@ -27,6 +31,10 @@ class board {
 
   setBoards(boards) {
     this.idBoards = boards;
+  }
+
+  addList(id) {
+    this.idLists.push(id);
   }
 }
 
