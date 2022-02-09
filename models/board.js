@@ -16,8 +16,17 @@ class board {
     this.name = name;
   }
 
-  addBoard() {
-    return this.board;
+  deleteList(id) {
+    const newLists = this.idLists.filter((element) => element.id !== id);
+    this.setLists(newLists);
+  }
+
+  getBoards() {
+    return this.idLists;
+  }
+
+  setLists(list) {
+    this.idLists = list;
   }
 
   deleteBoard(id) {
@@ -25,11 +34,8 @@ class board {
     this.setBoards(newBoards);
   }
 
-  getBoards() {
-    return this.board;
-  }
-
   setBoards(boards) {
+    //en realidad devuelve al hijo idList
     this.idBoards = boards;
   }
 
