@@ -7,6 +7,7 @@ class Panel {
     this.idContainer = idContainer;
     this.idList = [];
     type === "BOT" ? delete this.idList : null;
+    type === "TOP" ? delete this.idContainer : null;
   }
 
   setName(name) {
@@ -22,11 +23,12 @@ class Panel {
   }
 
   deleteID(id) {
-    const newList = this.idList.map((element) => element.id !== id);
-    this.setContextCard(newList);
+    const newList = this.idList.filter((element) => element.id !== id);
+    this.setList(newList);
   }
 
   setList(newList) {
+    console.log(newList);
     this.idList = newList;
   }
 }

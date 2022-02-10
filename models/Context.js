@@ -41,12 +41,12 @@ class Context {
   }
 
   deleteList(id) {
-    const newContext = this.contextList.map((element) => element.id !== id);
+    const newContext = this.contextList.filter((element) => element.id !== id);
     this.setContextList(newContext);
   }
 
   deleteCard(id) {
-    const newContext = this.contextCard.map((element) => element.id !== id);
+    const newContext = this.contextCard.filter((element) => element.id !== id);
     this.setContextCard(newContext);
   }
 

@@ -11,6 +11,7 @@ function updateList(req, res) {
   });
 
   context.setContextList(newContext);
+  console.log(newContext);
   res
     .status(200)
     .json(aux ? { message: "Modificado" } : { message: "No encontrado" });

@@ -30,8 +30,8 @@ function createBoard(req, res) {
     .status(200)
     .json(
       contextOrganization
-        ? { message: "nueva tarjeta creada" }
-        : { message: "Lista no encontrada" }
+        ? { message: "Tablero creado" }
+        : { message: "Organizacion no creada" }
     );
 }
 module.exports = createBoard;

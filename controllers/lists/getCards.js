@@ -8,12 +8,9 @@ function getCards(req, res) {
   contextList.map((element) => {
     if (element.id === req.params.id) {
       //Obtengo los ids de las cartas
-      ListIDS = element.getCards();
+      ListIDS = element.getList();
     }
   });
-
-  console.log(ListIDS);
-  console.log(contextList);
 
   //Ahora con la lista encontrada, traigo las cartas
   const allCards = context.getContextCard();
