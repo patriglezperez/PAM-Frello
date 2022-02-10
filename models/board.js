@@ -29,9 +29,9 @@ class board {
     this.idLists = list;
   }
 
-  deleteBoard(id) {
-    const newBoards = this.idBoards.map((element) => element.id !== id);
-    this.setBoards(newBoards);
+  deleteList(id) {
+    const newLists = this.idLists.filter((element) => element.id !== id);
+    this.setLists(newLists);
   }
 
   setBoards(boards) {
