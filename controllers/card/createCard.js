@@ -1,5 +1,5 @@
 const context = require("../../models/Context");
-const Card = require("../../models/card/card");
+const Card = require("../../models/card");
 
 function createCard(req, res) {
   //Buscamos nuestra lista

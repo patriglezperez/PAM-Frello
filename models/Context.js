@@ -1,7 +1,7 @@
 const Organization = require("./Organization");
-const Card = require("./card/card");
+const Card = require("./Card");
 const List = require("./List");
-const Board = require("./board");
+const Board = require("./Board");
 
 class Context {
   constructor() {
@@ -83,21 +83,28 @@ class Context {
   }
 }
 
+//Creamos el contexto
 const newContext = new Context();
 
+//Creamos los objetos y los relacionamos entre si bien con los ids
 const firstOrganization = new Organization("pamlohavueltoahacer");
-const firstBoard = new Board("pamlohavueltoahacer", "Tablero de prueba");
+const firstBoard = new Board(firstOrganization.id, "Tablero de prueba");
 const firstList = new List("Lista de pruebas", firstBoard.id);
-const firstCard = new Card(10, "Tarjeta de prueba");
+const firstCard = new Card("Tarjeta de pruebas", firstList.id);
 
-console.log(firstList);
+//Los metemos de referencia, como si se hubiesen creado dinamicamente
+firstOrganization.addID(firstBoard.id);
+firstBoard.addID(firstList.id);
+firstList.addID(firstCard.id);
 
+//Los inyectamos al context creado
 newContext.addOrganization(firstOrganization);
-newContext.addBoard(firstBoard);
-newContext.addList(firstList);
-
-newContext.addCard(firstCard); /*Aqui para crear tarjetas*/
 newContext.addBoard(firstBoard); /*Aqui para crear tableros*/
-newContext.addOrganization(firstOrganization);
+newContext.addList(firstList); /*Aqui para crear tableros*/
+newContext.addCard(firstCard); /*Aqui para crear tarjetas*/
 
+console.log(newContext);
+
+//Devolvemos el context en el export
+//con lo que persistiremos este objeto en memoria
 module.exports = newContext;

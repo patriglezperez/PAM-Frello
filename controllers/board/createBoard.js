@@ -1,5 +1,5 @@
 const context = require("../../models/Context");
-const Board = require("../../models/board");
+const Board = require("../../models/Board");
 
 function createBoard(req, res) {
   //Buscamos nuestra lista
@@ -16,7 +16,7 @@ function createBoard(req, res) {
   if (myOrganization !== false) {
     //Seteamos contexto y la lista
     context.addBoard(newBoard);
-    myOrganization.addBoard(newBoard.id);
+    myOrganization.addID(newBoard.id);
     // console.log(context);
     //La lista que tenemos ahora es diferente a la guardada en el contexto, procedemos a cambiarla:
 

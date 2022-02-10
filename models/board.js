@@ -1,47 +1,13 @@
-const { v4: uuidv4 } = require("uuid");
+const Panel = require("./Panel");
 
-class board {
+class Board extends Panel {
   constructor(idOrganization, name) {
-    (this.id = uuidv4()),
-      (this.title = "bla bla bla"),
-      (this.name = name),
-      (this.idOrganization = idOrganization),
+    super(name, idOrganization, "MID");
+    (this.title = "bla bla bla"),
       (this.Background = "#00000"),
-      (this.idLists = []),
       (this.BackgroundColor = "#00000"),
-      (this.Url = "/PENE");
-  }
-
-  setName(name) {
-    this.name = name;
-  }
-
-  deleteList(id) {
-    const newLists = this.idLists.filter((element) => element.id !== id);
-    this.setLists(newLists);
-  }
-
-  getBoards() {
-    return this.idLists;
-  }
-
-  setLists(list) {
-    this.idLists = list;
-  }
-
-  deleteList(id) {
-    const newLists = this.idLists.filter((element) => element.id !== id);
-    this.setLists(newLists);
-  }
-
-  setBoards(boards) {
-    //en realidad devuelve al hijo idList
-    this.idBoards = boards;
-  }
-
-  addList(id) {
-    this.idLists.push(id);
+      (this.Url = "/Board/" + this.id);
   }
 }
 
-module.exports = board;
+module.exports = Board;
