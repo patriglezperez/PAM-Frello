@@ -14,22 +14,22 @@ function deleteCard(req, res) {
     //Encontramos al padre de ese elemento
     const Father = context
       .getContextList()
-      .find((element) => element.id === itemToDelete.idList);
+      .find((element) => element.id === itemToDelete.idContainer);
 
-    Father.deleteCard(itemToDelete.id);
-    console.log(getContextList);
+    Father.deleteID(itemToDelete.id);
 
     //Creamos nuevo contexto de boards
     context.deleteCard(itemToDelete.id);
     context.deleteList(Father.id);
     context.addList(Father);
 
-    res.json(
-      comprobacion.includes(req.params.id)
-        ? { message: "deleted" }
-        : { message: "Lista no encontrada" }
-    );
+    console.log(context);
   }
+  res.json(
+    comprobacion.includes(req.params.id)
+      ? { message: "deleted" }
+      : { message: "Lista no encontrada" }
+  );
 }
 
 module.exports = deleteCard;

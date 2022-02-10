@@ -14,9 +14,11 @@ function deleteList(req, res) {
     //Encontramos al padre de ese elemento
     const Father = context
       .getContextBoard()
-      .find((element) => element.id === itemToDelete.idBoard);
+      .find((element) => element.id === itemToDelete.idContainer);
 
-    Father.deleteList(itemToDelete.id);
+    /* console.log(itemToDelete.idContainer); */
+
+    Father.deleteID(itemToDelete.id);
 
     context.deleteList(itemToDelete.id);
     context.deleteBoard(Father.id);

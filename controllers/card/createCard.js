@@ -1,5 +1,5 @@
 const context = require("../../models/Context");
-const Card = require("../../models/card/card");
+const Card = require("../../models/card");
 
 function createCard(req, res) {
   //Buscamos nuestra lista
@@ -15,7 +15,7 @@ function createCard(req, res) {
   if (myList !== false) {
     //Seteamos contexto y la lista
     context.addCard(newCard);
-    myList.addCard(newCard.id);
+    myList.addID(newCard.id);
 
     //La lista que tenemos ahora es diferente a la guardada en el contexto, procedemos a cambiarla:
 

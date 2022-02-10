@@ -11,6 +11,7 @@ function updateCard(req, res) {
   });
 
   context.setContextCard(newContext);
+  console.log(newContext);
   res
     .status(200)
     .json(

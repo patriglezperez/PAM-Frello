@@ -1,31 +1,13 @@
 const { v4: uuidv4 } = require("uuid");
+const Panel = require("./Panel");
 
-class Organization {
+class Organization extends Panel {
   constructor(id) {
-    (this.id = id),
-      (this.name = "Espacio PAM"),
-      (this.DisplayName = "PAM Workspace"),
+    super("PAM Organization", "pamlohavueltoahacer", "TOP");
+    (this.DisplayName = "PAM Workspace"),
       (this.IDmemberCreator = uuidv4()),
-      (this.URL = "/WorkspacePAM"),
-      (this.idBoards = []),
+      (this.URL = "/WorkspacePAM/" + this.id),
       (this.membership = uuidv4());
-  }
-
-  addBoard(board) {
-    this.idBoards.push(board);
-  }
-
-  deleteBoard(id) {
-    const newBoards = this.idBoards.map((element) => element.id !== id);
-    this.setBoards(newBoards);
-  }
-
-  getBoards() {
-    return this.idBoards;
-  }
-
-  setBoards(boards) {
-    this.idBoards = boards;
   }
 }
 

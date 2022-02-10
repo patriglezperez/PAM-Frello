@@ -1,23 +1,10 @@
 const { v4: uuidv4 } = require("uuid");
+const Panel = require("./Panel");
 
-class List {
+class List extends Panel {
   constructor(name, idBoard) {
-    (this.id = uuidv4()),
-      (this.name = name),
-      (this.idBoard = idBoard),
-      (this.idCards = []);
-  }
-
-  setName(name) {
-    this.name = name;
-  }
-
-  getCards() {
-    return this.idCards;
-  }
-
-  addCard(idCard) {
-    this.idCards.push(idCard);
+    super(name, idBoard, "MID");
+    this.idMember = uuidv4();
   }
 }
 
