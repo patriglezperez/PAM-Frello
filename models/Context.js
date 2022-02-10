@@ -86,11 +86,11 @@ class Context {
 const newContext = new Context();
 
 const firstOrganization = new Organization("pamlohavueltoahacer");
-const firstList = new List("Lista de pruebas", 10);
+const firstBoard = new Board("pamlohavueltoahacer", "Tablero de prueba");
+const firstList = new List("Lista de pruebas", firstBoard.id);
 const firstCard = new Card(10, "Tarjeta de prueba");
-const firstBoard = new Board(10, "Tablero de prueba");
 
-console.log(firstOrganization);
+console.log(firstList);
 
 newContext.addOrganization(firstOrganization);
 newContext.addBoard(firstBoard);

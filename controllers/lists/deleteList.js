@@ -28,6 +28,7 @@ function deleteList(req, res) {
       ? { message: "deleted" }
       : { message: "Lista no encontrada" }
   );
+  console.log(context);
 }
 
 module.exports = deleteList;

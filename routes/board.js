@@ -3,8 +3,10 @@ var router = require("express").Router();
 //Obtener un tablero
 // router.get("/:id", require("../controllers/board/getBoard"));
 
+//Crear un tablero
 router.post("/:id", require("../controllers/board/createBoard"));
 
+//Borrar un tablero
 router.delete("/:id", require("../controllers/board/deleteBoard"));
 
 //Obtener listas en un tablero
