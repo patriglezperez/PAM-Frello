@@ -23,7 +23,7 @@ class Panel {
   }
 
   deleteID(id) {
-    const newList = this.idList.filter((element) => element.id !== id);
+    const newList = this.idList.filter((element) => element !== id);
     this.setList(newList);
   }
 

@@ -5,7 +5,6 @@ function getOrganization(req, res) {
   const selected = contextOrganizations.filter(
     (element) => element.id === req.params.id
   );
-  console.log(context);
   res.status(200).json(selected);
 }
 

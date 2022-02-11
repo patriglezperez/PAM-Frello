@@ -4,7 +4,6 @@ function deleteBoard(req, res) {
   //Traemos todos los boards
   const allBoards = context.getContextBoard();
   const allList = context.getContextList();
-  const allCards = context.getContextCard();
   let Father = undefined
 
   //Esto es una solucion vaga, pero bueno
@@ -23,11 +22,11 @@ function deleteBoard(req, res) {
       .find((element) => element.id === itemToDelete.idContainer);
 
     if(Father !== undefined){
-      itemToDelete.getList().map(idlist => {
+      itemToDelete.getList().filter(idlist => {
         allList.filter(list => {
           if(list.id === idlist){
             context.deleteList(idlist);
-            list.getList().map(idCard => {
+            list.getList().filter(idCard => {
               context.deleteCard(idCard)
             })
           }
@@ -41,6 +40,7 @@ function deleteBoard(req, res) {
     }
     
   }
+
 
   /* console.log(context) */
 
