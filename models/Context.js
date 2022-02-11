@@ -28,7 +28,7 @@ class Context {
   }
 
   deleteOrganization(id) {
-    const newContext = this.contextOrganization.map(
+    const newContext = this.contextOrganization.filter(
       (element) => element.id !== id
     );
     this.setContextOrganization(newContext);

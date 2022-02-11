@@ -32,7 +32,7 @@ function deleteBoard(req, res) {
             })
           }
         })
-      })  
+      })
 
       Father.deleteID(itemToDelete.id);
       context.deleteBoard(itemToDelete.id);
@@ -47,9 +47,8 @@ function deleteBoard(req, res) {
   res.json(
     comprobacion.includes(req.params.id) && Father !== undefined
       ? { message: "deleted" }
-      : { message: "Lista no encontrada" }
+      : { message: "BOARD no encontrada" }
   );
-  console.log(context);
 }
 
 module.exports = deleteBoard;
