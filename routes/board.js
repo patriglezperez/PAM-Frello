@@ -1,7 +1,7 @@
 var router = require("express").Router();
 
-//Obtener un tablero
-// router.get("/:id", require("../controllers/board/getBoard"));
+//Obtener todos los tableros de una organizacion
+router.get("/:id/organization", require("../controllers/board/getBoard"));
 
 //Crear un tablero
 router.post("/:id", require("../controllers/board/createBoard"));
@@ -16,6 +16,6 @@ router.get("/list/:id", require("../controllers/board/getLists"));
 router.patch("/:id", require("../controllers/board/updateBoard"));
 
 //Crear lista en un tablero
-router.post("/list/:id", require("../controllers/board/createList"));
+router.post("/create/:id", require("../controllers/board/createBoard"));
 
 module.exports = router;

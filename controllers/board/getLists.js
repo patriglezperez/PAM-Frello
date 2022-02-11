@@ -2,10 +2,10 @@ const context = require("../../models/Context");
 
 function getLists(req, res) {
   let listIDS = [];
-  const contextBoard = context.getContextBoard();
+  const allBoards = context.getContextBoard();
 
   //Realizo una búsqueda de los tableros con su id
-  contextBoard.filter((element) => {
+  allBoards.filter((element) => {
     if (element.id === req.params.id) {
       //Obtengo los ids de los tableros
       listIDS = element.getList();
@@ -17,17 +17,20 @@ function getLists(req, res) {
 
   //Realizo un map del arr de ids y dentro utilizo un find en todas las listas
   //Dentro del find le digo que me retorne si el id del elemento es igual al id que contiene el arr sobre el que hago map
-  const response = listIDS.map((ids) =>
+
+  if(allLists.length > 0 && listIDS.length > 0){
+    const response = listIDS.map((ids) =>
     allLists.find((element) => element.id === ids)
   );
+    res.status(200).json(response)
+  }else{
+    res
+    .status(404)
+    .json({ message: "Este tablero no tiene listas" });
+  }
+  
 
-  res
-    .status(200)
-    .json(
-      listIDS.length > 0
-        ? response
-        : { message: "Este tablero no tiene listas" }
-    );
+  
 }
 
 module.exports = getLists;

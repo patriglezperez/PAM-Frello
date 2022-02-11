@@ -28,7 +28,7 @@ class Context {
   }
 
   deleteOrganization(id) {
-    const newContext = this.contextOrganization.map(
+    const newContext = this.contextOrganization.filter(
       (element) => element.id !== id
     );
     this.setContextOrganization(newContext);
@@ -103,7 +103,7 @@ newContext.addBoard(firstBoard); /*Aqui para crear tableros*/
 newContext.addList(firstList); /*Aqui para crear tableros*/
 newContext.addCard(firstCard); /*Aqui para crear tarjetas*/
 
-console.log(newContext);
+console.log(newContext)
 
 //Devolvemos el context en el export
 //con lo que persistiremos este objeto en memoria
