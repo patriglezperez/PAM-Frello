@@ -16,6 +16,6 @@ router.get("/list/:id", require("../controllers/board/getLists"));
 router.patch("/:id", require("../controllers/board/updateBoard"));
 
 //Crear lista en un tablero
-router.post("/create/:id", require("../controllers/board/createBoard"));
+router.post("/create/:id", require("../controllers/board/createList"));
 
 module.exports = router;
