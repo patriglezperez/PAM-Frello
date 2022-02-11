@@ -2,13 +2,13 @@ const context = require("../../models/Context");
 
 function getLists(req, res) {
   let listIDS = [];
-  const contextOrganization = context.getContextOrganization();
+  const contextBoard = context.getContextBoard();
 
   //Realizo una búsqueda de los tableros con su id
-  contextOrganization.map((element) => {
+  contextBoard.filter((element) => {
     if (element.id === req.params.id) {
       //Obtengo los ids de los tableros
-      listIDS = element.getLists();
+      listIDS = element.getList();
     }
   });
 
