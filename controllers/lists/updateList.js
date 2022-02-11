@@ -2,7 +2,7 @@ const context = require("../../models/Context");
 
 function updateList(req, res) {
   let aux = false;
-  const newContext = context.getContextList().map((element) => {
+  const newContext = context.getContextList().filter((element) => {
     if (element.id === req.params.id) {
       element.setName(req.query.name);
       aux = true;

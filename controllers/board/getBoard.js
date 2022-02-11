@@ -1,29 +1,32 @@
 const context = require("../../models/Context");
 
-function getBoard(req, res) {
-  let idBoards = [];
+function getBoards(req, res) {
+  //Recogemos todos los posibles padres y todos los posibles hijos
   const contextOrganization = context.getContextOrganization();
+  const wanted = context.getContextBoard();
 
-  //Realizo busqueda de la lista con su id
-  contextOrganization.map((element) => {
-    if (element.id === req.params.id) {
-      //Obtengo los ids de las cartas
-      idBoards = element.getBoards();
-    }
-  });
+  console.log(contextOrganization)
 
-  //Ahora con la lista encontrada, traigo las cartas
-  const allBoard = context.getContextBoard();
+  //Realizo una búsqueda de la organization
+  const Father = contextOrganization.find(element => element.id === req.params.id);
 
-  //Realizo un map del arr de ids y dentro utilizo un find en todas las cartas
+  //Tenemos al padre, asi que sacamos su lista
+  const ids = Father.getList();
+
+  const response = ids.map(id => {
+    return wanted.find(element => element.id === id)
+  })
+
+  //Realizo un map del arr de ids y dentro utilizo un find en todas los boards
   //Dentro del find le digo que me retorne si el id del elemento es igual al id que contiene el arr sobre el que hago map
-  const response = idBoards.map((ids) =>
-    allBoard.find((element) => element.id === ids)
-  );
-  // console.log("hola");
+
   res
     .status(200)
-    .json(idBoards.length > 0 ? response : { message: "No cards or not List" });
+    .json(
+      response.length > 0
+        ? response
+        : { message: "Este tablero no tiene listas" }
+    );
 }
 
-module.exports = getBoard;
+module.exports = getBoards;

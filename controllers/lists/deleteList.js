@@ -18,6 +18,10 @@ function deleteList(req, res) {
 
     /* console.log(itemToDelete.idContainer); */
 
+    itemToDelete.getList().map(idCard => {
+      context.deleteCard(idCard)
+    })
+
     Father.deleteID(itemToDelete.id);
 
     context.deleteList(itemToDelete.id);
